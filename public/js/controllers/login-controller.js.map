@@ -1,0 +1,1 @@
+{"version":3,"sources":["login-controller.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"login-controller.js","sourcesContent":["angular.module('CmasR',['ngRoute','ngCookies'])\n    .controller('loginController',['$scope',function($scope)\n    {\n\n    }]);"],"sourceRoot":"/source/"}
