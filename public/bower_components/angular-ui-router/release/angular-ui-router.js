@@ -2500,7 +2500,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    *   angular.forEach(views, function (config, name) {
    *     var autoName = (state.name + '.' + name).replace('.', '/');
-   *     config.templateUrl = config.templateUrl || '/partials/' + autoName + '.html';
+   *     config.templateUrl = config.templateUrl || '/templates/' + autoName + '.html';
    *     result[name] = config;
    *   });
    *   return result;
@@ -2516,8 +2516,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * // ...
    *
    * $state.go('home');
-   * // Auto-populates list and item views with /partials/home/contact/list.html,
-   * // and /partials/home/contact/item.html, respectively.
+   * // Auto-populates list and item views with /templates/home/contact/list.html,
+   * // and /templates/home/contact/item.html, respectively.
    * </pre>
    *
    * @param {string} name The name of the builder function to decorate. 

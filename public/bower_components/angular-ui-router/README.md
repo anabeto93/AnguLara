@@ -96,14 +96,14 @@ The majority of UI-Router's power is in its ability to nest states & views.
 
 >
 ```html
-<!-- partials/state1.html -->
+<!--templates-->
 <h1>State 1</h1>
 <hr/>
 <a ui-sref="state1.list">Show List</a>
 <div ui-view></div>
 ```
 ```html
-<!-- partials/state2.html -->
+<!--templates-->
 <h1>State 2</h1>
 <hr/>
 <a ui-sref="state2.list">Show List</a>

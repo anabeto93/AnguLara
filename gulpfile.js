@@ -20,13 +20,30 @@ require('laravel-elixir-vue');
 
 elixir(function(mix)
 {
-    //mix.sass('app2.scss');scss
-
-    mix.scripts([
+    mix.sass('app.scss')
+        .scripts([
         'app2.js'
-    ],'./public/js/app2.js');
-
-    mix.scripts([
+    ],'./public/js/app2.js')
+        .scripts([
         'controllers/login-controller.js'
-    ],'./public/js/controllers/login-controller.js');
+    ],'./public/js/controllers/login-controller.js')
+        .scripts([
+            'controllers/logout-controller.js'
+        ],'./public/js/controllers/logout.js')
+        .scripts([
+            'controllers/main.js'
+        ],'./public/js/controllers/main.js')
+        .scripts([
+            'controllers/siteControls.js'
+        ],'./public/js/controllers/sites.js')
+        .scripts([
+            'services/user-service.js'
+        ],'./public/js/services/users.js')
+        .scripts([
+            'controllers/site-monitor-controller.js'
+        ],'./public/js/controllers/sitesmonitor.js')
+        .version([
+            'js/controllers.js',
+            'js/controllers.js'
+        ]);
 });

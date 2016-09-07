@@ -15,10 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('name',50);
+            $table->string('email',320)->unique();
+            $table->string('password',64);
+            $table->unsignedInteger('picture_id')->default(0);
+            $table->unsignedInteger('level')->default(0);
             $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('websites',function(Blueprint $table)
+        {
+           $table->increments('id');
+            $table->string('url',50);
+            $table->string('site_title');
             $table->timestamps();
         });
     }
@@ -31,5 +41,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
+        Schema::drop('websites');
     }
 }

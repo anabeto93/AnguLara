@@ -21,3 +21,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Websites::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'url' => $faker->name,
+        'site_title' => $faker->safeEmail
+    ];
+});
+

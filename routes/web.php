@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
+
+
+Route::post('auth','AuthenticateController@checkAuth');
+Route::resource('user','AuthenticateController');
+
+Route::post('session/set','SessionController@setSession');
+Route::post('session/get','SessionController@getSession');
+Route::post('session/remove','SessionController@popSession');
+
+Route::post('websites/get','AuthenticateController@index');
+
+Route::get('{all}',function()
+{
+    return view('master');
+});
+
+
