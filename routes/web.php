@@ -23,7 +23,15 @@ Route::post('session/set','SessionController@setSession');
 Route::post('session/get','SessionController@getSession');
 Route::post('session/remove','SessionController@popSession');
 
-Route::post('websites/get','AuthenticateController@index');
+Route::post('websites/get','SiteMonitorController@index');
+Route::post('websites/get/status','SiteMonitorController@getStatus');
+
+Route::group(['prefix' => 'api'], function()
+{
+    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    Route::post('authenticate', 'AuthenticateController@authenticate');
+    Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+});
 
 Route::get('{all}',function()
 {

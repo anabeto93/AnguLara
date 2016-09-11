@@ -12,7 +12,7 @@ angular.module('CmasR')
             $rootScope.picture_id = 0;
             $scope.removeSession();
             console.log("User logged out");
-            //$location.path('/');
+            $location.path('/');
         };
 
         $scope.removeSession = function()
@@ -29,12 +29,11 @@ angular.module('CmasR')
                 .success(function(sessionResponse)
                 {
                     console.log(sessionResponse);
-                    $location.path('/');
+                    //$location.path('/');
                 })
                 .error(function(sessionData,sessionStatus,sessionHeaders)
                 {
                     console.log(sessionData,sessionStatus,sessionHeaders);
-                    //$location.path('/');
                 });
         };
 

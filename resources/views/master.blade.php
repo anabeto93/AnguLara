@@ -11,6 +11,7 @@
 
     <title>Rancard CMA System</title>
 
+
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -25,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('vendors/jqvmap/dist/jqvmap.min.css')}}">
 
     <!-- Custom Theme Style -->
-    <link type="text/css" href="{{asset('build/css/custom2.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('build/css/custom.css')}}" rel="stylesheet">
     <link type="text/css" href="{{asset('build/css/loginpage.css')}}" rel="stylesheet">
 
     <script>var baseUrl = "{{ url('/')}}/";</script>
@@ -73,25 +74,26 @@
 <script type="text/javascript" src="{{asset('js/moment/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/datepicker/daterangepicker.js')}}"></script>
 
-<!-- Custom Theme Scripts -->
-<script type="text/javascript" src="{{asset('build/js/custom.js')}}"></script>
+<!-- Custom Theme Scripts --
+<script type="text/javascript" src="{{asset('build/js/custom.js')}}"></script>-->
 <!-- AngularJS Components -->
 <script type="text/javascript" src="{{asset('bower_components/angular/angular.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/angular-route/angular-route.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/angular-cookies/angular-cookies.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/angular-animate/angular-animate.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/angular-ui-router/release/angular-ui-router.js')}}"></script>
-<!--<script type="text/javascript" src="{{asset('bower_components/angular-bootstrap/ui-bootstrap.min.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('bower_components/angular-modal-service/dst/angular-modal-service.min.js')}}"></script>
 <!--<script type="text/javascript" src="{{asset('bower_components/lodash/dist/lodash.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/angular-local-storage/dist/angular-local-storage.js')}}"></script>
 <script type="text/javascript" src="{{asset('bower_components/restangular/dist/restangular.js')}}"></script>-->
+<script type="text/javascript" src="{{asset('bower_components/satellizer/dist/satellizer.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/app2.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/controllers/main.js')}}"></script>
 <!--<script type="text/javascript" src="{{asset('js/controllers/sites.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('js/controllers/login-controller.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/controllers/logout.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/controllers/sitesmonitor.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/controllers/alerts.js')}}"></script>
 <!---<script type="text/javascript" src="{{asset('js/services/users.js')}}"></script>-->
 </body>
 </html>

@@ -1,15 +1,18 @@
 var app = angular.module('CmasR',['ngRoute','ngCookies',
     'ngAnimate','ui.router',
-    'angularModalService']);
+    'angularModalService','satellizer']);
     app.config([
         '$routeProvider',
         '$locationProvider',
         '$interpolateProvider',
         '$urlRouterProvider',
         '$stateProvider',
-    function($routeProvider, $locationProvider,$interpolateProvider,$urlRouterProvider,$stateProvider)
+        '$authProvider',
+    function($routeProvider, $locationProvider,$interpolateProvider,$urlRouterProvider,$stateProvider,$authProvider)
     {
-        $interpolateProvider.startSymbol('[[').endSymbol(']]');
+        $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+
+        $authProvider.loginUrl = '/api/authenticate';
 
         $routeProvider
             .when('/',
@@ -44,15 +47,18 @@ var app = angular.module('CmasR',['ngRoute','ngCookies',
                 });
         $locationProvider.html5Mode(true);
         $stateProvider
-            .state('default',
+            .state('alerts',
                 {
-                    url: '/monitorSite',
-                    templateUrl: 'templates/monitorSite.html'
+                    url: '/alerts',
+                    templateUrl: 'templates/alerts.html',
+                    controller: 'AlertsController',
+                    controllerAs: 'AlertCtrl'
                 })
             .state('webmonitors',
                 {
                     url: '/webMonitors',
-                    templateUrl: 'templates/websites.html'
+                    templateUrl: 'templates/websites.html',
+                    controller: 'MainSiteController'
                 })
             .state('billingmonitors',
                 {
@@ -69,7 +75,7 @@ var app = angular.module('CmasR',['ngRoute','ngCookies',
                     controllerAs: 'SmsC'
                 });
     }])
-        .run(function($rootScope,$timeout)
+        .run(function($rootScope)
         {
             $rootScope.userCredentials = {};
             $rootScope.loggedIn = "false";
@@ -77,6 +83,10 @@ var app = angular.module('CmasR',['ngRoute','ngCookies',
             $rootScope.picture = 0;
             $rootScope.email = "";
             $rootScope.name = "";
+            $rootScope.urls = {};
+            $rootScope.responses = {};
+            $rootScope.sitesInfo = {};
+            $rootScope.firsttime = "";
         });
 //# sourceMappingURL=app2.js.map
 

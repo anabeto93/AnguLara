@@ -4,11 +4,11 @@ angular.module('CmasR')
 .controller('LoginController',[
     '$scope','$http','$rootScope','$location',function($scope,$http,$rootScope,$location)
     {
-        if($rootScope.loggedIn=="true")
+        /*if($rootScope.loggedIn=="true")
         {
             console.log("User already logged in");
             $location.path('/dashboard');
-        }
+        }*/
 
         $scope.login = function()
         {
@@ -16,8 +16,6 @@ angular.module('CmasR')
             {
                 var username = $scope.user.email;
                 var password = $scope.user.password;
-                var creds = username+" "+password;
-                //console.log(baseUrl);
 
                 $http({
                    headers:
@@ -59,7 +57,12 @@ angular.module('CmasR')
                             $rootScope.picture = sessionResponse.sessionPicture;
                             $rootScope.name = sessionResponse.sessionName;
                             $rootScope.level =sessionResponse.sessionLevel;
+                            $rootScope.loggedIn = sessionResponse.sessionStatus;
+                            $rootScope.firsttime = "true";
+                            console.log("LoggedIn",$rootScope.loggedIn);
                             $location.path('/dashboard');
+
+                            //$location.path('/alerts');
                         })
                         .error(function(sessionData,sessionStatus,sessionHeaders)
                         {

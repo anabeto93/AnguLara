@@ -42,6 +42,12 @@ elixir(function(mix)
         .scripts([
             'controllers/site-monitor-controller.js'
         ],'./public/js/controllers/sitesmonitor.js')
+        .scripts([
+            'controllers/alerts-controller.js'
+        ],'./public/js/controllers/alerts.js')
+        .scripts([
+            'css/cust3.css'
+        ],'./public/build/css/custom.css')
         .version([
             'js/controllers.js',
             'js/controllers.js'
