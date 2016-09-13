@@ -10,6 +10,16 @@ angular.module('CmasR')
             $location.path('/dashboard');
         }*/
 
+        console.log("logged in is ",$rootScope.loggedIn);
+        console.log("first time is ",$rootScope.firsttime);
+        if($rootScope.firsttime=="true")
+        {
+            $location.path('/dashboard');
+        }else if($rootScope.loggedIn=="true")
+        {
+            $location.path('/dashboard');
+        }
+
         $scope.login = function()
         {
             if($scope.loginForm.$valid)
@@ -53,13 +63,14 @@ angular.module('CmasR')
                         }})
                         .success(function(sessionResponse)
                         {
-                            //console.log(sessionResponse);
+                            /*console.log("session response",sessionResponse);
                             $rootScope.picture = sessionResponse.sessionPicture;
                             $rootScope.name = sessionResponse.sessionName;
                             $rootScope.level =sessionResponse.sessionLevel;
-                            $rootScope.loggedIn = sessionResponse.sessionStatus;
+                           // $rootScope.loggedIn = sessionResponse.sessionStatus;*/
+                            $rootScope.loggedIn = "true";
                             $rootScope.firsttime = "true";
-                            console.log("LoggedIn",$rootScope.loggedIn);
+                            console.log("Name is ",$rootScope.name);
                             $location.path('/dashboard');
 
                             //$location.path('/alerts');

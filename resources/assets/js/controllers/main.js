@@ -4,58 +4,13 @@ angular.module('CmasR')
     .controller('MainController',['$scope','$rootScope','$location','$http','$timeout',
         function($scope,$rootScope,$location,$http,$timeout)
     {
-        /*$timeout(function(){
+        $timeout(function(){
             if($rootScope.firsttime=="true")
             {
                 $location.path('/alerts');
             }
-        },100);*/
+        },100);
 
-        console.log("Main Called");
-        //console.log("Picture id : "+$rootScope.userCredentials.picture_id);
-        $scope.picture = "";
-
-        $scope.getSession = function()
-        {
-            $http({headers:
-            {
-                'Content-Type':'application/json'
-            },
-                url: baseUrl+'session/get',
-                method: "POST",
-                data:{
-                    sessionEmail: $rootScope.userCredentials.email
-                }})
-                .success(function(sessionResponse)
-                {
-                    //console.log(sessionResponse);
-                    if(sessionResponse == "No data found")
-                    {
-                        $location.path('/');
-                    }else {
-
-                        $rootScope.userCredentials = sessionResponse;
-
-                        console.log("user creds",$rootScope.userCredentials);
-                        $rootScope.picture = $rootScope.userCredentials.picture;
-                        $rootScope.name = $rootScope.userCredentials.name;
-                        $rootScope.level = $rootScope.userCredentials.level;
-                        $rootScope.email = $rootScope.userCredentials.email;
-                        console.log("pic",$rootScope.picture);
-                        console.log("name",$rootScope.name);
-                        console.log("mail",$rootScope.email);
-                        console.log("level",$rootScope.level);
-                    }
-
-                })
-                .error(function(sessionData,sessionStatus,sessionHeaders)
-                {
-                    console.log(sessionData,sessionStatus,sessionHeaders);
-                    //$location.path('/');
-                });
-        };
-
-        $scope.getSession();
         /**
          * Resize function without multiple trigger
          *
@@ -319,6 +274,54 @@ angular.module('CmasR')
         //console.log(pics);
         //console.log("pic is "+$rootScope.picture);
 
+
+
+            console.log("Main Called");
+            //console.log("Picture id : "+$rootScope.userCredentials.picture_id);
+            $scope.picture = "";
+
+            $scope.getSession = function()
+            {
+                $http({headers:
+                {
+                    'Content-Type':'application/json'
+                },
+                    url: baseUrl+'session/get',
+                    method: "POST",
+                    data:{
+                        sessionEmail: $rootScope.userCredentials.email
+                    }})
+                    .success(function(sessionResponse)
+                    {
+                        //console.log(sessionResponse);
+                        if(sessionResponse == "No data found")
+                        {
+                            $location.path('/');
+                        }else {
+
+                            $rootScope.userCredentials = sessionResponse;
+
+                            //console.log("user creds",$rootScope.userCredentials);
+                            $rootScope.picture = $rootScope.userCredentials.picture;
+                            $rootScope.name = $rootScope.userCredentials.name;
+                            $rootScope.level = $rootScope.userCredentials.level;
+                            $rootScope.email = $rootScope.userCredentials.email;
+                            /*console.log("pic",$rootScope.picture);
+                             console.log("name",$rootScope.name);
+                             console.log("mail",$rootScope.email);
+                             console.log("level",$rootScope.level);*/
+                        }
+
+                    })
+                    .error(function(sessionData,sessionStatus,sessionHeaders)
+                    {
+                        console.log(sessionData,sessionStatus,sessionHeaders);
+                        //$location.path('/');
+                    });
+            };
+
+            $scope.getSession();
+
         $scope.getPicture = function()
         {
             //console.log("Picture id : "+$rootScope.userCredentials.picture_id);
@@ -335,6 +338,14 @@ angular.module('CmasR')
 
     }])
     .controller('AuthController',AuthController)
+    .controller('BillingController',['$scope','$rootScope',function()
+    {
+
+    }])
+    .controller('SMSCController',['$scope','$rootScope',function()
+    {
+
+    }])
 .controller('UserController', UserController);
 function AuthController($auth, $state,$scope)
 {
